@@ -11,18 +11,20 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Facelet TitleT</title>
+        <title>La Casa del Ballet</title>
         <h:outputStylesheet name="css/main.css"  />
     </h:head>
     <h:body>
-        <ui:insert name="header">
-            <ui:include src="/templates/header.xhtml"></ui:include>
-        </ui:insert>
-        <ui:insert name="content">
-            <ui:include src="/templates/content.xhtml"></ui:include>
-        </ui:insert>
-        <ui:insert name="footer">
-            <ui:include src="/templates/footer.xhtml"></ui:include>
-        </ui:insert>
+        
+            <ui:insert name="header">
+                <ui:include src="/templates/header.xhtml"></ui:include>
+            </ui:insert>
+            <ui:insert name="content">
+                <ui:include src="/templates/content.xhtml"></ui:include>
+            </ui:insert>
+            <ui:insert name="footer">
+                <ui:include src="/templates/footer.xhtml"></ui:include>
+            </ui:insert>
+        
     </h:body>
 </html>
