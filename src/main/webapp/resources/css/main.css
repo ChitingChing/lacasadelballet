@@ -16,4 +16,7 @@ footer {
   background-color: #cccccc;
   text-align: center;
 }
+.noPaddingR{
+    padding-right:  0px !important ; 
+}
 

@@ -1,17 +1,33 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title213</title>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>La Casa del Ballet</title>
+        <h:outputStylesheet name="css/main.css"  />
     </h:head>
-    
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <ui:composition template="templates/template.xhtml"></ui:composition>
-        
+        <h:form >
+            <ui:insert name="header">
+                <ui:include src="/templates/header.xhtml"></ui:include>
+            </ui:insert>
+
+            <div class="content">
+                <ui:include src="#{contenidoBean.page}" />
+            </div>
+            
+        </h:form>
+        <ui:insert name="footer">
+            <ui:include src="/templates/footer.xhtml"></ui:include>
+        </ui:insert>
+
     </h:body>
 </html>
-

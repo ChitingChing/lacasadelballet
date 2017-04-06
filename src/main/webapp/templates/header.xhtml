@@ -15,10 +15,10 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition>
-            <h:form>
-                <b:navBar brand="La Casa del Ballet"   brandHref="http://localhost:8080/lacasadelballet" inverse="true"  fixed="top">
+            
+                <b:navBar brand="La Casa del Ballet"  onclick="#{contenidoBean.setPage('/templates/content.xhtml')}"  brandHref="http://localhost:8080/lacasadelballet" inverse="true"  fixed="top">
                     <b:navbarLinks>
-                        <b:navLink value="Consulta de Pagos" update="@form @(.content)" onclick="/pagos/consultaPagos.xhtml"></b:navLink>
+                        <b:navLink value="Consulta de Pagos" update="@form @(.content)" onclick="ajax:contenidoBean.setPage('/pagos/consultaPagos.xhtml')"></b:navLink>
                         <b:navLink value="Link" href="#" ></b:navLink>
                         <b:dropMenu value="Dropdown">
                             <b:navLink value="Action" href="#"></b:navLink>
@@ -31,7 +31,7 @@ and open the template in the editor.
                         </b:dropMenu>
                     </b:navbarLinks>
                 </b:navBar>     
-            </h:form>
+        
         </ui:composition>
     </h:body>
 </html>
