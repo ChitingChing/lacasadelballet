@@ -6,8 +6,8 @@
 package com.mycompany.lacasadelballet;
 
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
@@ -16,21 +16,19 @@ import java.io.Serializable;
 @Named(value = "contenidoBean")
 @SessionScoped
 public class contenidoBean implements Serializable {
-
     /**
      * Creates a new instance of contenidoBean
      */
     private String page ="/templates/content.xhtml";
 
     public String getPage() {
+        System.out.println(page);
         return page;
     }
 
     public void setPage(String page) {
         this.page = page;
     }
-    
-    public contenidoBean() {
-    }
+        
     
 }

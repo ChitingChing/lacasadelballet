@@ -16,9 +16,9 @@ and open the template in the editor.
     <h:body>
         <ui:composition>
             
-                <b:navBar brand="La Casa del Ballet"  onclick="#{contenidoBean.setPage('/templates/content.xhtml')}"  brandHref="http://localhost:8080/lacasadelballet" inverse="true"  fixed="top">
+                <b:navBar brand="La Casa del Ballet"  brandHref="http://localhost:8080/lacasadelballet" inverse="true"  fixed="top">
                     <b:navbarLinks>
-                        <b:navLink value="Consulta de Pagos" update="@form @(.content)" onclick="ajax:contenidoBean.setPage('/pagos/consultaPagos.xhtml')"></b:navLink>
+                        <b:navLink value="Consulta de Pagos" update="@form @(.content)" onclick="ajax:navigationBean.setPage('/pagos/consultaPagos.xhtml')"></b:navLink>
                         <b:navLink value="Link" href="#" ></b:navLink>
                         <b:dropMenu value="Dropdown">
                             <b:navLink value="Action" href="#"></b:navLink>
