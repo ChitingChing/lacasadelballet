@@ -19,12 +19,5 @@ footer {
 .noPaddingR{
     padding-right:  0px !important ; 
 }
-#loading{
-    display: none;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    
-}
+
 

@@ -28,10 +28,7 @@
                     </b:dropMenu>
                 </b:navbarLinks>
             </b:navBar>
-
-            <div id="loading">
-                <b:spinner size="5x" name="refresh" ></b:spinner>
-            </div>
+           
             <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">

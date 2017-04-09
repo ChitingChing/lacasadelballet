@@ -461,4 +461,14 @@ public boolean Verificar_Datos(String Sentencia)
                  UnaC.Cerrar();
            return rs;
     }
+    
+    public ResultSet getMatriculasAlumno(String Alumno){
+        PreparedStatement pStm =null;
+        try{
+            pStm = Conexion.prepareStatement("Select ");
+        }catch (Exception e){}
+                
+        
+        return null;        
+    }
 }

@@ -6,6 +6,7 @@
 package com.mycompany.lacasadelballet;
 
 import clases.Alumno;
+import clases.Matricula;
 import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -24,10 +25,11 @@ public class matriculaBean {
     private List<String> matriculas;
     public matriculaBean() {
     }
-    public void buscarMatriculasPorPersona(){
+    public List<String> buscarMatriculasPorPersona(String Alumno){
         
-        Alumno a= new Alumno();
-        
+        Matricula m = new Matricula();
+       // m.getMatriculas(Alumno);
+        return matriculas;
     }
     
 }
