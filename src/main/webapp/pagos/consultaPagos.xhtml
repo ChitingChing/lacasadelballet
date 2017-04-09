@@ -11,22 +11,24 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title213</title>
-        
+
     </h:head>
-    
+
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        
+
         <ui:composition>
-            
+
             <h1 style="text-align: center;">Consulta de Pagos</h1>
             <b:panelGrid style="margin: 10px auto;max-width: 50%"  colSpans="10,2" size="xs" >
-            
-            <b:inputText />
-            <b:button  value="" icon="search"/>
+                <b:inputText />
+                <b:commandButton update="l" actionListener="#{navigationBean.conect()}" value=""  icon="search"/>
             </b:panelGrid>
-            
+            <b:dataTable var="matricula" value="">
+                <b:dataTableColumn value=""></b:dataTableColumn>
+            </b:dataTable>
+
         </ui:composition>
-       
-        
+
+
     </h:body>
 </html>
