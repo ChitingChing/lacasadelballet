@@ -5,7 +5,7 @@
  */
 package clases;
 
-import accesodatos.Conexion;
+import com.mycompany.lacasadelballet.Conexion;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;

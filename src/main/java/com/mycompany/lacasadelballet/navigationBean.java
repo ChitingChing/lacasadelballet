@@ -5,7 +5,6 @@
  */
 package com.mycompany.lacasadelballet;
 
-import accesodatos.Conexion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

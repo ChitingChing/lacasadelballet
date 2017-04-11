@@ -20,8 +20,8 @@ and open the template in the editor.
 
             <h1 style="text-align: center;">Consulta de Pagos</h1>
             <b:panelGrid style="margin: 10px auto;max-width: 50%"  colSpans="10,2" size="xs" >
-                <b:inputText />
-                <b:commandButton update="l" actionListener="#{navigationBean.conect()}" value=""  icon="search"/>
+                <b:inputText value="#{matriculaBean.alumnoAbuscar}" />
+                <b:commandButton  actionListener="#{matriculaBean.buscar()}" value=""  icon="search"/>
             </b:panelGrid>
             <b:dataTable var="matricula" value="">
                 <b:dataTableColumn value=""></b:dataTableColumn>
