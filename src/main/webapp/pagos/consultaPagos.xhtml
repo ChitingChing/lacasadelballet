@@ -9,6 +9,7 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
     <h:head>
         <title>Facelet Title213</title>
 
@@ -20,12 +21,18 @@ and open the template in the editor.
 
             <h1 style="text-align: center;">Consulta de Pagos</h1>
             <b:panelGrid style="margin: 10px auto;max-width: 50%"  colSpans="10,2" size="xs" >
-                <b:inputText value="#{matriculaBean.alumnoAbuscar}" />
-                <b:commandButton  actionListener="#{matriculaBean.buscar()}" value=""  icon="search"/>
+                <b:inputText value="#{matriculaBean.alumno}" />
+                
+                <b:commandButton update="@form"  actionListener="#{matriculaBean.buscar()}" value=""  icon="search"/>
             </b:panelGrid>
-            <b:dataTable var="matricula" value="">
-                <b:dataTableColumn value=""></b:dataTableColumn>
+            <b:dataTable id="lstMatriculas" class="table-center" select="true" selectionMode="single" var="matricula" value="#{matriculaBean.matriculas}">
+                <b:dataTableColumn value="#{matricula.nombre}"></b:dataTableColumn>
+                <b:dataTableColumn value="#{matricula.apellido}"></b:dataTableColumn>
+                <b:dataTableColumn value="#{matricula.curso}"></b:dataTableColumn>
+                <b:dataTableColumn value="#{matricula.fecha}"></b:dataTableColumn>
+                <b:dataTableColumn ><b:commandButton ajax="true" value="" icon="search"/> </b:dataTableColumn>
             </b:dataTable>
+            
 
         </ui:composition>
 

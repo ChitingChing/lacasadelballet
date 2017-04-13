@@ -5,7 +5,7 @@
  */
 package clases;
 
-import com.mycompany.lacasadelballet.Conexion;
+
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
@@ -16,26 +16,15 @@ import java.util.List;
  */
 public class Matricula {
     private int id;
-    private Date fecha;
+    private String fecha;
     private BigDecimal valorMatricula; 
     private BigDecimal valorMensualidad;
     private BigDecimal numMeses;
     private char estado;
-    private int idCurso;
-    private int idAlumno;
-    private int idCategoria;        
-
-    public Matricula(int id, Date fecha, BigDecimal valorMatricula, BigDecimal valorMensualidad, BigDecimal numMeses, char estado, int idCurso, int idAlumno, int idCategoria) {
-        this.id = id;
-        this.fecha = fecha;
-        this.valorMatricula = valorMatricula;
-        this.valorMensualidad = valorMensualidad;
-        this.numMeses = numMeses;
-        this.estado = estado;
-        this.idCurso = idCurso;
-        this.idAlumno = idAlumno;
-        this.idCategoria = idCategoria;
-    }
+    private String curso;
+    private String nombre;
+    private String apellido;
+    private String categoria;        
 
     public Matricula() {
     }
@@ -48,11 +37,11 @@ public class Matricula {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -88,33 +77,38 @@ public class Matricula {
         this.estado = estado;
     }
 
-    public int getIdCurso() {
-        return idCurso;
+    public String getCurso() {
+        return curso;
     }
 
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 
-    public int getIdAlumno() {
-        return idAlumno;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setIdAlumno(int idAlumno) {
-        this.idAlumno = idAlumno;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     
-    public List<Matricula> getMAtriculas(String Alumno){
-        Conexion con = new Conexion();
-        
-        return null;
-    }
+    
 }

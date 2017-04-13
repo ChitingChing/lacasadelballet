@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.lacasadelballet;
+package datos;
 
 import java.sql.*;
 public class Conexion 
@@ -52,8 +52,6 @@ public class Conexion
             {
                 conexion=DriverManager.getConnection((URL+Nombre_Base_Datos), Usuario,Password);
                 this.setEstado_BD("ok");
-                Ejecutor=conexion.createStatement();
-                Resultado=null;
             }
             catch(Exception ex)
             {
@@ -463,9 +461,9 @@ public class Conexion
         try{
             Conectar();
              Statement stm = conexion.createStatement();
-            String sql = "select * from "+NombreProcedimiento+"("+Alumno+");";
+            String sql = "select * from "+NombreProcedimiento+"('"+Alumno+"');";
             rs = stm.executeQuery(sql);            
-            conexion.close();
+            Cerrar();
         }catch (Exception e){
             System.out.println(e.toString());
         }
