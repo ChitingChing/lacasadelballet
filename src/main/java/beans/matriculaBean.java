@@ -29,6 +29,16 @@ public class matriculaBean implements Serializable{
      */
     private List<Matricula> matriculas;
     private String alumno;
+    private Matricula matriculaSeleccionada;
+    
+
+    public Matricula getMatriculaSeleccionada() {
+        return matriculaSeleccionada;
+    }
+
+    public void setMatriculaSeleccionada(Matricula matriculaSeleccionada) {
+        this.matriculaSeleccionada = matriculaSeleccionada;
+    }
 
     public String getAlumno() {
         return alumno;
