@@ -25,9 +25,9 @@ and open the template in the editor.
             <b:panelGrid style="margin: 10px auto;max-width: 50%"  colSpans="10,2" size="xs" >
                 <b:inputText value="#{matriculaBean.alumno}" />
 
-                <b:commandButton update="@form"  actionListener="#{matriculaBean.buscar()}" value=""  icon="search"/>
+                <b:commandButton update="@form"  actionListener="#{matriculaBean.buscarMatriculas()}" value=""  icon="search"/>
             </b:panelGrid>
-            <p:dataTable var="mat" rowKey="#{mat.nombre}" selectionMode="single" paginator="true" rows="5" rowsPerPageTemplate="5,10,15"  value="#{matriculaBean.matriculas}">
+            <p:dataTable style="max-width: 80%;margin: 20px auto;" id="tbmatriculas" var="mat" rowKey="#{mat.id}" selection="#{matriculaBean.matriculaSeleccionada}" selectionMode="single" paginator="true" rows="5" rowsPerPageTemplate="5,10,15"  value="#{matriculaBean.matriculas}">
                 <p:column headerText="Nombre">
                     <h:outputText value="#{mat.nombre}" />
                 </p:column>
@@ -44,19 +44,18 @@ and open the template in the editor.
                     <h:outputText value="#{mat.fecha}" />
                 </p:column>
 
-                <p:column style="width:32px;text-align: center">
-                    <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
-                        <f:setPropertyActionListener value="#{mat}" target="#{matriculaBean.matriculaSeleccionada}" />
+                <f:facet name="footer">
+                    <p:commandButton process="tbmatriculas" update="@form:tbpagos" actionListener="#{matriculaBean.buscarPagosMatricula()}"   icon="ui-icon-search" title="View">                        
                     </p:commandButton>
-                </p:column>
+                </f:facet>
             </p:dataTable> 
             
-            <p:dataTable var="pago" paginator="true" rows="5" rowsPerPageTemplate="5,10" value="">
+            <p:dataTable id="tbpagos"  var="pago" paginator="true" rows="5" rowsPerPageTemplate="5,10" value="#{matriculaBean.pagos}">
                 <p:column headerText="Fecha">
-                    <h:outputText value="" />
+                    <h:outputText value="#{pago.fecha}" />
                 </p:column>
-                <p:column headerText="valor">
-                    <h:outputText value="" />
+                <p:column headerText="Valor">
+                    <h:outputText value="#{pago.valor}" />
                 </p:column>
             </p:dataTable>
 
