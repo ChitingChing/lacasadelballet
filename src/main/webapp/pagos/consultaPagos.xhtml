@@ -27,7 +27,7 @@ and open the template in the editor.
 
                 <b:commandButton update="@form"  actionListener="#{matriculaBean.buscarMatriculas()}" value=""  icon="search"/>
             </b:panelGrid>
-            <p:dataTable style="max-width: 80%;margin: 20px auto;" id="tbmatriculas" var="mat" rowKey="#{mat.id}" selection="#{matriculaBean.matriculaSeleccionada}" selectionMode="single" paginator="true" rows="5" rowsPerPageTemplate="5,10,15"  value="#{matriculaBean.matriculas}">
+            <p:dataTable reflow="true" style="max-width: 80%;margin: 20px auto;" id="tbmatriculas" var="mat" rowKey="#{mat.id}" selection="#{matriculaBean.matriculaSeleccionada}" selectionMode="single" paginator="true" rows="5" rowsPerPageTemplate="5,10,15"  value="#{matriculaBean.matriculas}">
                 <p:column headerText="Nombre">
                     <h:outputText value="#{mat.nombre}" />
                 </p:column>
@@ -50,9 +50,9 @@ and open the template in the editor.
                 </f:facet>
             </p:dataTable> 
             
-            <p:dataTable id="tbpagos"  var="pago" paginator="true" rows="5" rowsPerPageTemplate="5,10" value="#{matriculaBean.pagos}">
-                <p:column headerText="Fecha">
-                    <h:outputText value="#{pago.fecha}" />
+            <p:dataTable  reflow="true" style="max-width: 50%; margin: 20px auto;" id="tbpagos"  var="pago" paginator="true" rows="5" rowsPerPageTemplate="5,10" value="#{matriculaBean.pagos}">
+                <p:column  headerText="Fecha">
+                    <h:outputText style="text-align: center;" value="#{pago.fecha}" />
                 </p:column>
                 <p:column headerText="Valor">
                     <h:outputText value="#{pago.valor}" />
