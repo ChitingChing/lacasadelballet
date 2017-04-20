@@ -43,6 +43,10 @@ and open the template in the editor.
                 <p:column headerText="Fecha Inicio">
                     <h:outputText value="#{mat.fecha}" />
                 </p:column>
+                
+                <p:column headerText="Valor Curso">
+                    <h:outputText value="#{mat.valorMensualidad}" />
+                </p:column>
 
                 <f:facet name="footer">
                     <p:commandButton process="tbmatriculas" update="@form:tbpagos" actionListener="#{matriculaBean.buscarPagosMatricula()}"   icon="ui-icon-search" title="View">                        

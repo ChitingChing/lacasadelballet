@@ -10,6 +10,7 @@ import clases.Matricula;
 import clases.Pago;
 import datos.Conexion;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -86,6 +87,9 @@ public class matriculaBean implements Serializable {
                 m.setApellido(rs.getString("apellido"));
                 m.setCurso(rs.getString("curso"));
                 m.setFecha(rs.getString("fechacurso"));
+                BigDecimal a = BigDecimal.ZERO;
+                a = rs.getBigDecimal("valormen");
+                m.setValorMensualidad(a);
                 matriculas.add(m);
             }
         } catch (SQLException e) {
