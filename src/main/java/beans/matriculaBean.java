@@ -34,6 +34,15 @@ public class matriculaBean implements Serializable {
     private String alumno;
     private Matricula matriculaSeleccionada;
     private List<Pago> pagos;
+    private BigDecimal totalPagos = BigDecimal.ZERO;
+
+    public void setTotalPagos(BigDecimal totalPagos) {
+        this.totalPagos = totalPagos;
+    }
+
+    public BigDecimal getTotalPagos() {
+        return totalPagos;
+    }
 
     public List<Pago> getPagos() {
         return pagos;
@@ -87,9 +96,9 @@ public class matriculaBean implements Serializable {
                 m.setApellido(rs.getString("apellido"));
                 m.setCurso(rs.getString("curso"));
                 m.setFecha(rs.getString("fechacurso"));
-                BigDecimal a = BigDecimal.ZERO;
-                a = rs.getBigDecimal("valormen");
-                m.setValorMensualidad(a);
+                m.setValorMensualidad(rs.getBigDecimal("valormen"));
+                m.setNumMeses(rs.getBigDecimal("nummeses"));
+                m.setValorMatricula(rs.getBigDecimal("valormat"));
                 matriculas.add(m);
             }
         } catch (SQLException e) {
@@ -103,6 +112,7 @@ public class matriculaBean implements Serializable {
 
         try {
             if (matriculaSeleccionada != null) {
+                totalPagos = new BigDecimal("0.00");
                 Conexion con = new Conexion();
                 pagos = new ArrayList<>();
                 ResultSet rs = con.ejecutarProcedimientoPg("getpagosmatricula", matriculaSeleccionada.getId());
@@ -112,7 +122,10 @@ public class matriculaBean implements Serializable {
                     p.setValor(rs.getBigDecimal("valor"));
                     p.setFecha(rs.getString("fecha"));
                     pagos.add(p);
+                    totalPagos=totalPagos.add(p.getValor());
+                    //System.out.println(p.getValor().toString());
                 }
+
             }
         } catch (SQLException e) {
             System.out.println(e.toString());

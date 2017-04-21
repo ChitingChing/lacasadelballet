@@ -17,16 +17,27 @@ import java.util.List;
 public class Matricula {
     private String id;
     private String fecha;
-    private BigDecimal valorMatricula; 
-    private BigDecimal valorMensualidad;
-    private BigDecimal numMeses;
+    private BigDecimal valorMatricula= BigDecimal.ZERO; 
+    private BigDecimal valorMensualidad= BigDecimal.ZERO;
+    private BigDecimal numMeses= BigDecimal.ZERO;
     private char estado;
     private String curso;
     private String nombre;
     private String apellido;
-    private String categoria;        
+    private String categoria; 
+    private BigDecimal totalCurso = BigDecimal.ZERO; 
 
     public Matricula() {
+    }
+
+    public BigDecimal getTotalCurso() {
+        
+        totalCurso= valorMatricula.add(valorMensualidad.multiply(numMeses)).setScale(2);
+        return totalCurso;
+    }
+
+    public void setTotalCurso(BigDecimal totalCurso) {
+        this.totalCurso = totalCurso;
     }
 
     public String getId() {
@@ -108,7 +119,6 @@ public class Matricula {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-
     
     
 }

@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class Pago {
     
     private String id;
-    private BigDecimal valor;
+    private BigDecimal valor = BigDecimal.ZERO;
     private String fecha;
 
     public String getId() {

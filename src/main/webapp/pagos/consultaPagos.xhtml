@@ -45,7 +45,7 @@ and open the template in the editor.
                 </p:column>
                 
                 <p:column headerText="Valor Curso">
-                    <h:outputText value="#{mat.valorMensualidad}" />
+                    <h:outputText value="#{mat.totalCurso}" />
                 </p:column>
 
                 <f:facet name="footer">
@@ -55,6 +55,10 @@ and open the template in the editor.
             </p:dataTable> 
             
             <p:dataTable  reflow="true" style="max-width: 50%; margin: 20px auto;" id="tbpagos"  var="pago" paginator="true" rows="5" rowsPerPageTemplate="5,10" value="#{matriculaBean.pagos}">
+                <f:facet name="header">
+                    <h:outputText value="#{matriculaBean.matriculaSeleccionada.nombre} #{matriculaBean.matriculaSeleccionada.apellido} ha pagado 
+                                  #{matriculaBean.totalPagos} de #{matriculaBean.matriculaSeleccionada.totalCurso}"/>
+            </f:facet>
                 <p:column  headerText="Fecha">
                     <h:outputText style="text-align: center;" value="#{pago.fecha}" />
                 </p:column>
