@@ -6,33 +6,46 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"      
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>La Casa del Ballet</title>
         <h:outputStylesheet name="css/main.css"  />
+        <h:outputStylesheet name="css/navbar.css"  />
+        <h:outputScript name="js/navbar.js"/>
     </h:head>
-    <h:body style="padding-top: 50px; padding-bottom: 20px;">
-         <h:form>
-            <b:navBar brand="La Casa del Ballet"  inverse="true"  fixed="top">
-                <b:navbarLinks>
-                    <b:navLink value="Inicio" update="@form @(.content)" oncomplete="$(loading).hide();$(content).show();"  onclick="$(content).hide();$(loading).show();ajax:navigationBean.setPage('/templates/content.xhtml')" ></b:navLink>
-                    <b:navLink value="Consulta de Pagos" update="@form @(.content)" oncomplete="$(loading).hide();$(content).show();"  onclick="$(content).hide();$(loading).show();ajax:navigationBean.setPage('/pagos/consultaPagos.xhtml');"></b:navLink>
+    <h:body >   
+        
+            <h:form  id="form" >
+                <div  class="topnav" id="myTopnav">
+                    <a href="#" class="brand">La Casa del Ballet</a>
+                    <h:commandLink  value="Inicio" onclick="#{navigationBean.setPage('/templates/content.xhtml')}">
+                        <p:ajax  update="form"/>
+                    </h:commandLink>
+                    <h:commandLink  value="Consulta de Pagos" onclick="#{navigationBean.setPage('/pagos/consultaPagos.xhtml')}">
+                        <p:ajax  update="form"/>
+                    </h:commandLink>
+                    <a href="#about">About</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                </div>   
 
-                    <b:dropMenu value="Dropdown">
-                        <b:navLink value="Action" href="#"></b:navLink>
-                        <b:navLink value="Another action" href="#"></b:navLink>
-                        <b:navLink value="Something else here" href="#"></b:navLink>
-                        <b:navLink></b:navLink>
-                        <b:navLink header="Nav header"></b:navLink>
-                        <b:navLink value="Separated link" href="#"></b:navLink>
-                        <b:navLink value="One more separated link" href="#"></b:navLink>
-                    </b:dropMenu>
-                </b:navbarLinks>
-            </b:navBar>
-         </form>
+                <div id="contenedor" >
+                    <ui:include  src="#{navigationBean.page}" />
+                </div>
+            </h:form>
+            <div id="pie">
+                <footer>
+                    <p>Desarrollador por Chiting Ching. 2017</p>
+                </footer>  
+            </div>
+        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:graphicImage  name="/img/ajax-loader.gif" />
+        </p:dialog>
 
     </h:body>
 </html>

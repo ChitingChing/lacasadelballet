@@ -10,7 +10,8 @@ and open the template in the editor.
 body{
     margin:0;
     padding:0;
-    height:100%;    
+    height:100%;  
+    font-family: sans-serif;
 }
 #pie {
     
@@ -37,8 +38,7 @@ body{
 }
 #todo{
 /*    min-height: 100%;
-    position: relative;*/
-    
+    position: relative;*/    
 }
 
 
