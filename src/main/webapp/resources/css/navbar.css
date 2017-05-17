@@ -33,9 +33,10 @@ body {margin:0;}
   
 }
 
-.topnav a:hover {
- 
+.topnav a:hover ,.topnav a:focus {
+  text-decoration: none;
   color: deeppink;
+  outline: 0;
 }
 
 .topnav .icon {

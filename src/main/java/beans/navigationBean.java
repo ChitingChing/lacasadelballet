@@ -7,7 +7,7 @@ package beans;
 
 import datos.Conexion;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 
 /**
@@ -15,17 +15,13 @@ import java.io.Serializable;
  * @author chiti
  */
 @Named(value = "navigationBean")
-@SessionScoped
+@ViewScoped
 public class navigationBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String page = "/templates/content.xhtml";
-    private String e;
-
-    public String getE() {
-        return e;
-    }
+    private String page = "/templates/inicio.xhtml";
+   
     public String getPage() {
         return page;
     }
@@ -34,9 +30,5 @@ public class navigationBean implements Serializable {
         this.page = currentPage;
     }
 
-    public void conect() {
-        Conexion cn = new Conexion();
-        cn.Conectar();
-        e=cn.getEstado_BD();
-    }
+    
 }
