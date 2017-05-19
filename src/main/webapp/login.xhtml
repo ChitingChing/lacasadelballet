@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:composition>
+             <h:form class="login-form centrado-porcentual">
+                 <div class="ui-fluid ">
+                     <p:panelGrid   columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" >
+                         <p:outputLabel value="Usuario" for="txtUser"/>
+                         <p:inputText id="txtUser" value="" />
+                     </p:panelGrid>
+                 </div>                 
+             </h:form>
+         </ui:composition>
+    </h:body>
+</html>
+
