@@ -12,15 +12,10 @@
             <h:form  id="form" >
                 <div  class="topnav" id="myTopnav">
                     <a href="#" class="brand">La Casa del Ballet</a>
-                    <h:commandLink  value="Inicio" action="#{navigationBean.setPage('/templates/inicio.xhtml')}">
-                       
-                    </h:commandLink>
-                    <h:commandLink  value="Consulta de Pagos" action="#{navigationBean.setPage('/pagos/consultaPagos.xhtml')}">
-                        
-                    </h:commandLink>
-                    <h:commandLink  value="Iniciar Sesión" action="#{navigationBean.setPage('/WEB-INF/login.xhtml')}">
-                        
-                    </h:commandLink>
+                    <h:commandLink  value="Inicio" action="#{navigationBean.setPage('/templates/inicio.xhtml')}"/>
+                    <h:commandLink  value="Consulta de Pagos" action="#{navigationBean.setPage('/pagos/consultaPagos.xhtml')}"/>                        
+                    <h:commandLink  value="Iniciar Sesión" action="#{navigationBean.setPage('/WEB-INF/login.xhtml')}"/>   
+                    <h:commandLink  value="Registro de Matricula" action="#{navigationBean.setPage('registroMatricula.xhtml')}"/>   
                     <a href="#about">About</a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                 </div>                   
