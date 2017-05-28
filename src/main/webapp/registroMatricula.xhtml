@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"      
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"      
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>La Casa del Ballet</title>
@@ -16,19 +17,50 @@
         <ui:composition template="/WEB-INF/templates/masterLayout.xhtml">
             <ui:define name="leftContent"/>
             <ui:define name="content">
-                <div class="ui-fluid">
-                    <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank" >
-                        <p:outputLabel value="Nombre: " for="nombre"/>
-                        <p:inputText id="nombre" />
-                        
-                        <p:outputLabel value="Apellido: " for="apellido"/>
-                        <p:inputText id="apellido" />
-                        
-                        <p:outputLabel value="Fecha de nacimiento: " for="fechaNacimiento"/>
-                        <p:inputText id="fechaNacimiento" />
-                        
-                    </p:panelGrid>
-                </div>
+                <h:form>
+                    <div class="ui-fluid">
+                        <p:panelGrid columns="2" style="max-width: 600px; margin:auto;" columnClasses="ui-grid-col-3,ui-grid-col-9" layout="grid" styleClass="ui-panelgrid-blank" >
+                            <p:outputLabel value="Nombre: " for="nombre" />
+                            <p:inputText id="nombre" required="true"/>
+
+                            <p:outputLabel value="Apellido: " for="apellido"/>
+                            <p:inputText id="apellido" required="true"/>
+
+                            <p:outputLabel value="Fecha de nacimiento: " for="fechaNacimiento"/>
+                            <p:inputText type="date" id="fechaNacimiento" required="true" />
+
+                            <p:outputLabel value="Nombre Representante: " for="nombreRep"/>
+                            <p:inputText id="nombreRep" />
+
+                            <p:outputLabel value="Apellido Representante: " for="apellido"/>
+                            <p:inputText id="apellidoRep" />
+
+                            <p:outputLabel value="Relación: " for="relacion"/>
+                            <p:inputText id="relacion" />
+
+                            <p:outputLabel value="Teléfono: " for="telefono"/>
+                            <p:inputText id="telefono" required="true" />
+
+                            <p:outputLabel value="Categoría " for="categoria"/>
+                            <p:selectOneMenu id="categoria"  >
+                                <f:selectItem itemValue="" itemLabel="Seleciona uno..."/>                                
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Fecha de Ingreso: " for="fechaIngreso"/>
+                            <p:inputText type="date" id="fechaIngreso" required="true" />
+
+                            <p:outputLabel value="Valor Matrícula: " for="valorMatricula"/>
+                            <p:inputText id="valorMatricula" required="true" />
+
+                            <p:outputLabel value="Valor Mensualidad: " for="valorMatricula"/>
+                            <p:inputText id="valorMensualidad" required="true" />
+                        </p:panelGrid>
+                    </div>
+                    <div  style="max-width: 600px; margin:auto; text-align: right;">
+                        <p:commandButton   icon="fa fa-save"  value="Guardar" />
+                    </div>
+
+                </h:form>
             </ui:define>
         </ui:composition>
 
