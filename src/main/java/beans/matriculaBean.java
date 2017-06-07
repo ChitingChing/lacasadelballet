@@ -35,6 +35,7 @@ public class matriculaBean implements Serializable {
     private Matricula matriculaSeleccionada;
     private List<Pago> pagos;
     private BigDecimal totalPagos = BigDecimal.ZERO;
+             
 
     public void setTotalPagos(BigDecimal totalPagos) {
         this.totalPagos = totalPagos;

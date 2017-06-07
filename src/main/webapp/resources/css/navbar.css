@@ -38,6 +38,9 @@ body {margin:0;}
   color: deeppink;
   outline: 0;
 }
+.currentLink {
+       background-color: darkslategray;
+}
 
 .topnav .icon {
   display: none;
