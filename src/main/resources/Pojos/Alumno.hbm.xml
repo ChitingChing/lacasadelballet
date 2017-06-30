@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2017 18:26:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Alumno" table="alumno" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellido" type="string">
+            <column name="apellido" length="25" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" />
+        </property>
+        <property name="fechanac" type="date">
+            <column name="fechanac" length="13" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="apellidorepresentante" type="string">
+            <column name="apellidorepresentante" length="25" />
+        </property>
+        <property name="nombrerepresentante" type="string">
+            <column name="nombrerepresentante" length="25" />
+        </property>
+        <property name="relacion" type="string">
+            <column name="relacion" length="25" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="10" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idalumno" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2017 18:26:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Matricula" table="matricula" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="alumno" class="Pojos.Alumno" fetch="select">
+            <column name="idalumno" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoria" class="Pojos.Categoria" fetch="select">
+            <column name="idcategoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="curso" class="Pojos.Curso" fetch="select">
+            <column name="idcurso" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+        <property name="valormatricula" type="big_decimal">
+            <column name="valormatricula" precision="4" />
+        </property>
+        <property name="valormensualidad" type="big_decimal">
+            <column name="valormensualidad" precision="4" />
+        </property>
+        <property name="nummeses" type="big_decimal">
+            <column name="nummeses" precision="3" scale="1" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idmatricula" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Pago" />
+        </set>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idmatricula" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

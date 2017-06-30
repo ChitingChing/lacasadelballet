@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2017 18:26:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Precio" table="precio" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="5" />
+        </property>
+        <property name="fechainicio" type="date">
+            <column name="fechainicio" length="13" />
+        </property>
+        <property name="fechafin" type="date">
+            <column name="fechafin" length="13" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

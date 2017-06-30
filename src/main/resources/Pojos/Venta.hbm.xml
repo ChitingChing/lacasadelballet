@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2017 18:26:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Venta" table="venta" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="matricula" class="Pojos.Matricula" fetch="select">
+            <column name="idmatricula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="Pojos.Producto" fetch="select">
+            <column name="idproducto" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <set name="pagoventas" table="pagoventa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idventa" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Pagoventa" />
+        </set>
+    </class>
+</hibernate-mapping>

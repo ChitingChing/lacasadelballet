@@ -5,11 +5,15 @@
  */
 package beans;
 
+import Pojos.Categoria;
 import clases.Alumno;
 import clases.Matricula;
 import clases.Pago;
+import dao.PracticaDao;
 import datos.Conexion;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -70,6 +74,12 @@ public class registroMatricula implements Serializable {
         } catch (Exception e) {
         }
 
+    }
+    
+    public List<Categoria> obtenerCategorias(){
+        PracticaDao p = new PracticaDao();
+        return p.obtenerCategorias();
+        
     }
 
 }

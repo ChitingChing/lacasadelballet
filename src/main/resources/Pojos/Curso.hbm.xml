@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2017 18:26:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Curso" table="curso" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipocurso" class="Pojos.Tipocurso" fetch="select">
+            <column name="idtipocurso" not-null="true" />
+        </many-to-one>
+        <property name="fechainicio" type="date">
+            <column name="fechainicio" length="13" />
+        </property>
+        <property name="fechafin" type="date">
+            <column name="fechafin" length="13" />
+        </property>
+        <property name="nummeses" type="big_decimal">
+            <column name="nummeses" precision="3" scale="1" />
+        </property>
+        <property name="valormatricularef" type="big_decimal">
+            <column name="valormatricularef" precision="4" />
+        </property>
+        <property name="valormensualidadref" type="big_decimal">
+            <column name="valormensualidadref" precision="4" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcurso" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>
