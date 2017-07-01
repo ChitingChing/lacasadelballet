@@ -25,16 +25,14 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class PracticaDao {
 
     public List<Categoria> obtenerCategorias() {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
-        SessionFactory factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        
         List<Categoria> categorias = null;
-        factory.openSession();
-        try(Session session = factory.openSession()) {
+        
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "from Categoria c";
             Query query = session.createQuery(hql);
             categorias = (List<Categoria>) query.list();
+            session.close();
         }
 
         return categorias;

@@ -64,6 +64,9 @@
 
                 </h:form>
                 <p:outputLabel value="#{registroMatricula.obtenerCategorias()}"/>
+                <p:dataList var="c" value="#{registroMatricula.obtenerCategorias()}">
+                    #{c.descripcion} , #{c.id}
+                </p:dataList>
             </ui:define>
         </ui:composition>
 
